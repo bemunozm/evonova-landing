@@ -1,36 +1,53 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# EVONOVA Landing Page
 
-## Getting Started
+Landing page oficial de EVONOVA construida con tecnología de vanguardia para ofrecer una experiencia de usuario de alto rendimiento.
 
-First, run the development server:
+## 🚀 Tecnologías
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- **Framework:** [Next.js](https://nextjs.org/) (App Router)
+- **Estilos:** [Tailwind CSS v4](https://tailwindcss.com/)
+- **Componentes:** [shadcn/ui](https://ui.shadcn.com/)
+- **Lenguaje:** TypeScript
+- **Calidad de código:** ESLint + Prettier
+
+## 📋 Estructura del Proyecto
+
+```text
+src/
+├── app/            # App Router (páginas y rutas)
+├── components/     # Componentes de UI (shadcn/ui y propios)
+├── lib/            # Utilidades y configuración
+├── styles/         # Estilos globales
+└── types/          # Definiciones de tipos TypeScript
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🛠️ Instalación
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. Clonar el repositorio:
+   ```bash
+   git clone <url-del-repo>
+   cd evonova-landing
+   ```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+2. Instalar dependencias:
+   ```bash
+   npm install
+   ```
 
-## Learn More
+3. Ejecutar entorno de desarrollo:
+   ```bash
+   npm run dev
+   ```
 
-To learn more about Next.js, take a look at the following resources:
+## ⚙️ Scripts Disponibles
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- `npm run dev`: Inicia el servidor de desarrollo.
+- `npm run build`: Genera la versión de producción.
+- `npm run lint`: Ejecuta el analizador de código.
+- `npm run format`: Formatea el código usando Prettier.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🏗️ Calidad de Código
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Este proyecto utiliza **ESLint** y **Prettier** para mantener un código limpio y consistente.
+- Ejecuta `npm run lint` antes de realizar un commit.
+- El formato se aplica automáticamente mediante Prettier configurado.
