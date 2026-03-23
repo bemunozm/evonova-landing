@@ -1,38 +1,29 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Outfit, Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const outfit = Outfit({
   subsets: ["latin"],
+  variable: "--font-display",
+  weight: ["400", "600", "700", "800"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const inter = Inter({
   subsets: ["latin"],
+  variable: "--font-inter",
+  weight: ["400", "500", "600"],
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: "--font-mono",
+  weight: ["400", "500"],
 });
 
 export const metadata: Metadata = {
-  title: {
-    default: "EVONOVA - Soluciones de Software de Vanguardia",
-    template: "%s | EVONOVA",
-  },
-  description: "EVONOVA transforma tu negocio con soluciones tecnológicas innovadoras, escalables y eficientes.",
-  keywords: ["software", "tecnología", "innovación", "desarrollo web", "EVONOVA"],
-  authors: [{ name: "EVONOVA Team" }],
-  openGraph: {
-    type: "website",
-    locale: "es_CL",
-    url: "https://evonova.cl",
-    title: "EVONOVA - Soluciones de Software de Vanguardia",
-    description: "Transformamos ideas en realidades digitales de alto impacto.",
-    siteName: "EVONOVA",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "EVONOVA - Soluciones de Software de Vanguardia",
-    description: "Transformamos ideas en realidades digitales de alto impacto.",
-  },
+  title: "EVONOVA - Tu empresa, operando en piloto automático",
+  description: "Automatización e IA a medida para escalar sin contratar más. La única agencia de automatización IA con presencia en Tarapacá que garantiza resultados medibles en 30 días.",
+  keywords: ["IA", "Automatización", "Tarapacá", "Iquique", "LangGraph", "Software a Medida", "Agentes de IA"],
 };
 
 export default function RootLayout({
@@ -41,11 +32,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="es"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
-    >
-      <body className="min-h-full flex flex-col">{children}</body>
+    <html lang="es" className="dark">
+      <body className={`${inter.variable} ${outfit.variable} ${jetbrainsMono.variable} bg-[var(--background)] text-[var(--foreground)] min-h-screen antialiased selection:bg-[#00ffa3] selection:text-black`}>
+        {children}
+      </body>
     </html>
   );
 }
