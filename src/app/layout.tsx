@@ -1,41 +1,58 @@
 import type { Metadata } from "next";
-import { Outfit, Inter, JetBrains_Mono } from "next/font/google";
+import { Playfair_Display, DM_Sans, DM_Mono } from "next/font/google";
 import "./globals.css";
 
-const outfit = Outfit({
+const playfair = Playfair_Display({
   subsets: ["latin"],
-  variable: "--font-display",
-  weight: ["400", "600", "700", "800"],
+  variable: "--font-playfair",
+  display: "swap",
 });
 
-const inter = Inter({
+const dmSans = DM_Sans({
   subsets: ["latin"],
-  variable: "--font-inter",
-  weight: ["400", "500", "600"],
+  variable: "--font-dm-sans",
+  display: "swap",
 });
 
-const jetbrainsMono = JetBrains_Mono({
+const dmMono = DM_Mono({
   subsets: ["latin"],
-  variable: "--font-mono",
   weight: ["400", "500"],
+  variable: "--font-dm-mono",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "EVONOVA - Tu empresa, operando en piloto automático",
-  description: "Automatización e IA a medida para escalar sin contratar más. La única agencia de automatización IA con presencia en Tarapacá que garantiza resultados medibles en 30 días.",
-  keywords: ["IA", "Automatización", "Tarapacá", "Iquique", "LangGraph", "Software a Medida", "Agentes de IA"],
+  title: "EVONOVA — Automatización IA y Software a Medida en Chile",
+  description:
+    "Agencia líder en automatización con IA y desarrollo de software a medida para empresas en Chile y LATAM. Garantizamos resultados medibles en 30 días.",
+  keywords: [
+    "automatización IA Chile",
+    "agencia software Chile",
+    "LangGraph Chile",
+    "inteligencia artificial empresas",
+    "software a medida LATAM",
+    "automatización procesos Chile",
+  ],
+  openGraph: {
+    title: "EVONOVA — Automatización IA y Software a Medida",
+    description: "Tu empresa, operando en piloto automático.",
+    siteName: "EVONOVA",
+    locale: "es_CL",
+    type: "website",
+  },
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
-    <html lang="es" className="dark">
-      <body className={`${inter.variable} ${outfit.variable} ${jetbrainsMono.variable} bg-[var(--background)] text-[var(--foreground)] min-h-screen antialiased selection:bg-[#00ffa3] selection:text-black`}>
-        {children}
-      </body>
+    <html
+      lang="es"
+      className={`${playfair.variable} ${dmSans.variable} ${dmMono.variable}`}
+    >
+      <body>{children}</body>
     </html>
   );
 }

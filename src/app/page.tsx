@@ -12,7 +12,7 @@ import { WhatsappButton } from "@/components/ui/whatsapp-button";
 
 export default function Home() {
   return (
-    <main className="min-h-screen relative flex flex-col">
+    <main>
       <Nav />
       <Hero />
       <TrustBar />

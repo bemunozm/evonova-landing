@@ -2,23 +2,97 @@ import Link from "next/link";
 
 export function Footer() {
   return (
-    <footer className="py-12 border-t border-[var(--border)] bg-[var(--background)]">
-      <div className="container px-6 mx-auto flex flex-col md:flex-row justify-between items-center">
-        <div className="flex items-center gap-2 mb-6 md:mb-0">
-          <div className="w-6 h-6 rounded bg-[var(--primary)] flex items-center justify-center">
-            <span className="text-black font-black text-sm">E</span>
+    <footer
+      style={{
+        background: "#0a0a0a",
+        borderTop: "1px solid rgba(255,255,255,0.06)",
+        padding: "48px 0",
+      }}
+    >
+      <div className="container">
+        <div
+          style={{
+            display: "flex",
+            flexWrap: "wrap",
+            justifyContent: "space-between",
+            alignItems: "center",
+            gap: 24,
+          }}
+        >
+          {/* Logo */}
+          <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+            <div
+              style={{
+                width: 28,
+                height: 28,
+                borderRadius: 6,
+                background: "var(--accent)",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              <span
+                style={{
+                  fontFamily: "var(--font-playfair, serif)",
+                  fontWeight: 700,
+                  fontSize: 15,
+                  color: "#fff",
+                  lineHeight: 1,
+                }}
+              >
+                E
+              </span>
+            </div>
+            <span
+              style={{
+                fontFamily: "var(--font-playfair, serif)",
+                fontWeight: 700,
+                fontSize: 16,
+                color: "#fff",
+                letterSpacing: "-0.02em",
+              }}
+            >
+              EVONOVA
+            </span>
           </div>
-          <span className="font-bold tracking-wider">EVONOVA</span>
-        </div>
-        
-        <div className="text-[var(--foreground-muted)] text-sm mb-6 md:mb-0 flex items-center gap-4">
-          <Link href="#" className="hover:text-white transition-colors">LinkedIn</Link>
-          <Link href="#" className="hover:text-white transition-colors">GitHub</Link>
-        </div>
 
-        <div className="text-[var(--foreground-muted)] text-sm text-center md:text-right">
-          <p>© {new Date().getFullYear()} EVONOVA.</p>
-          <p>Operando desde Tarapacá, Chile para el mundo.</p>
+          {/* Links */}
+          <div style={{ display: "flex", flexWrap: "wrap", gap: 24 }}>
+            {[
+              { href: "#servicios", label: "Servicios" },
+              { href: "#casos", label: "Casos" },
+              { href: "#pricing", label: "Pricing" },
+              { href: "#contacto", label: "Contacto" },
+            ].map(({ href, label }) => (
+              <Link
+                key={href}
+                href={href}
+                style={{
+                  fontFamily: "var(--font-body)",
+                  fontSize: 13,
+                  color: "rgba(255,255,255,0.4)",
+                  textDecoration: "none",
+                  transition: "color 0.2s",
+                }}
+  
+              >
+                {label}
+              </Link>
+            ))}
+          </div>
+
+          {/* Location + year */}
+          <div
+            style={{
+              fontFamily: "var(--font-mono)",
+              fontSize: 11,
+              color: "rgba(255,255,255,0.3)",
+              letterSpacing: "0.06em",
+            }}
+          >
+            Chile · LATAM · 2026
+          </div>
         </div>
       </div>
     </footer>

@@ -1,48 +1,109 @@
-import { AlertCircle, Clock, TrendingDown } from "lucide-react";
+import { Clock, AlertCircle, RefreshCw } from "lucide-react";
 
 export function PainSection() {
   const pains = [
     {
       icon: Clock,
-      title: "Tareas Repetitivas",
-      desc: "Tu equipo pierde el 40% de su tiempo copiando y pegando datos entre plataformas."
+      number: "23h",
+      title: "Semanales en tareas manuales",
+      desc: "Tu equipo dedica casi 3 días completos a procesos repetitivos que ninguna persona debería hacer: copiar datos, responder las mismas preguntas, actualizar registros.",
     },
     {
       icon: AlertCircle,
-      title: "Errores Humanos",
-      desc: "La carga manual genera fallas que cuestan dinero y rompen la experiencia de tu cliente."
+      number: "67%",
+      title: "De los leads se pierden por respuesta lenta",
+      desc: "Un cliente potencial contacta a tu empresa y espera horas (o días). Para entonces ya compró con la competencia. La velocidad de respuesta es la diferencia entre ganar y perder.",
     },
     {
-      icon: TrendingDown,
-      title: "Crecimiento Estancado",
-      desc: "Vender más significa contratar más. Tu operación es un cuello de botella para tu escalabilidad."
-    }
+      icon: RefreshCw,
+      number: "4x",
+      title: "Más costoso crecer sin automatización",
+      desc: "Cada vez que escalas, contratas más personas para hacer lo mismo. Es un ciclo que no termina. La alternativa es construir sistemas que crezcan contigo sin costo proporcional.",
+    },
   ];
 
   return (
-    <section className="py-24 relative overflow-hidden">
-      <div className="absolute left-0 right-0 h-px bg-gradient-to-r from-transparent via-[var(--border)] to-transparent top-0" />
-      
-      <div className="container px-6 mx-auto max-w-5xl">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
-            Crecer duele si lo haces <br className="hidden md:block" />
-            <span className="text-red-500/80">de forma manual.</span>
+    <section
+      id="problema"
+      style={{
+        background: "var(--bg-soft)",
+        padding: "120px 0",
+      }}
+    >
+      <div className="container">
+        <div style={{ maxWidth: 640, marginBottom: 64 }}>
+          <h2
+            style={{
+              fontSize: "clamp(32px, 4vw, 52px)",
+              fontWeight: 700,
+              color: "var(--fg)",
+              marginBottom: 20,
+              lineHeight: 1.15,
+            }}
+          >
+            ¿Cuántas horas pierde tu equipo en tareas que debería hacer una máquina?
           </h2>
-          <p className="text-lg text-[var(--foreground-muted)] max-w-2xl mx-auto">
-            Mientras tu competencia invierte en IA, tú sigues apagando incendios operativos. El costo de no automatizar se paga con estancamiento.
+          <p style={{ fontSize: 18, color: "var(--fg-muted)", lineHeight: 1.6, fontFamily: "var(--font-body)" }}>
+            El costo invisible de la operación manual no es solo tiempo. Es crecimiento que no ocurrió.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-6">
-          {pains.map((pain, index) => (
-            <div key={index} className="glass p-8 rounded-2xl glass-hover group">
-              <div className="w-12 h-12 rounded-lg bg-red-500/10 text-red-500 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                <pain.icon className="w-6 h-6" />
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
+            gap: 32,
+          }}
+        >
+          {pains.map(({ icon: Icon, number, title, desc }) => (
+            <div
+              key={title}
+              style={{
+                background: "#fff",
+                border: "1px solid var(--border)",
+                borderRadius: 12,
+                padding: 36,
+              }}
+            >
+              <div
+                style={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  width: 44,
+                  height: 44,
+                  background: "rgba(0,194,122,0.08)",
+                  borderRadius: 10,
+                  marginBottom: 20,
+                }}
+              >
+                <Icon size={20} style={{ color: "var(--accent)" }} />
               </div>
-              <h3 className="text-xl font-bold mb-3">{pain.title}</h3>
-              <p className="text-[var(--foreground-muted)] leading-relaxed">
-                {pain.desc}
+              <div
+                style={{
+                  fontFamily: "var(--font-mono)",
+                  fontSize: 40,
+                  fontWeight: 700,
+                  color: "var(--fg)",
+                  lineHeight: 1,
+                  marginBottom: 8,
+                }}
+              >
+                {number}
+              </div>
+              <div
+                style={{
+                  fontFamily: "var(--font-body)",
+                  fontWeight: 600,
+                  fontSize: 15,
+                  color: "var(--fg)",
+                  marginBottom: 12,
+                }}
+              >
+                {title}
+              </div>
+              <p style={{ fontSize: 14, color: "var(--fg-muted)", lineHeight: 1.65, fontFamily: "var(--font-body)" }}>
+                {desc}
               </p>
             </div>
           ))}

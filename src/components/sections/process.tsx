@@ -2,55 +2,156 @@ export function Process() {
   const steps = [
     {
       num: "01",
-      title: "Diagnóstico Profundo",
-      desc: "Analizamos tu cuello de botella operativo y calculamos el ROI potencial de automatizar."
+      title: "Diagnóstico Gratuito",
+      desc: "30 minutos. Analizamos tus procesos actuales, identificamos los cuellos de botella y definimos qué se puede automatizar primero.",
+      duration: "30 min",
     },
     {
       num: "02",
       title: "Diseño del Pipeline",
-      desc: "Arquitectura técnica y flujos de usuario. Decidimos qué IA (OpenAI, Claude) se adapta mejor."
+      desc: "Mapeamos el flujo de automatización: qué datos entran, qué procesa la IA, qué acciones ejecuta y cómo se integra con tus sistemas.",
+      duration: "3–5 días",
     },
     {
       num: "03",
-      title: "Implementación Ágil",
-      desc: "Desarrollo en sprints cortos. Conectamos APIs, webhooks y bases de datos sin romper tu operación actual."
+      title: "Implementación",
+      desc: "Construimos e integramos la solución. Sin plantillas, sin código genérico. Arquitectura diseñada para tu caso específico.",
+      duration: "2–6 semanas",
     },
     {
       num: "04",
-      title: "IA Tuning & Soporte",
-      desc: "Entrenamos a los agentes con tus datos y monitoreamos el rendimiento mes a mes."
-    }
+      title: "Optimización IA",
+      desc: "Una vez en producción, monitoreamos los resultados y afinamos los modelos. Tu sistema mejora con cada interacción.",
+      duration: "Continuo",
+    },
   ];
 
   return (
-    <section className="py-24 relative overflow-hidden bg-[var(--surface)]/30 border-y border-[var(--border)]">
-      <div className="container px-6 mx-auto max-w-4xl">
-        <div className="text-center mb-16">
-          <div className="text-[var(--secondary)] font-mono text-sm tracking-wider uppercase mb-4">El Camino</div>
-          <h2 className="text-3xl md:text-5xl font-bold mb-6">De caos manual a piloto automático.</h2>
-          <p className="text-lg text-[var(--foreground-muted)]">
-            Metodología probada para implementar automatización sin riesgos.
-          </p>
+    <section
+      id="proceso"
+      style={{ background: "#fff", padding: "120px 0" }}
+    >
+      <div className="container">
+        <div style={{ maxWidth: 520, marginBottom: 72 }}>
+          <span
+            style={{
+              fontFamily: "var(--font-mono)",
+              fontSize: 11,
+              letterSpacing: "0.1em",
+              textTransform: "uppercase",
+              color: "var(--accent)",
+              display: "block",
+              marginBottom: 16,
+            }}
+          >
+            Proceso
+          </span>
+          <h2
+            style={{
+              fontSize: "clamp(30px, 3.5vw, 46px)",
+              fontWeight: 700,
+              color: "var(--fg)",
+              lineHeight: 1.15,
+            }}
+          >
+            De cero a automatizado en menos de 8 semanas.
+          </h2>
         </div>
 
-        <div className="relative border-l border-[var(--border)] ml-6 md:ml-[50%] md:-translate-x-[1px]">
-          {steps.map((step, index) => (
-            <div key={index} className={`mb-12 relative flex items-center md:justify-between w-full ${index % 2 === 0 ? 'md:flex-row-reverse' : ''}`}>
-              
-              {/* Timeline dot */}
-              <div className="absolute w-4 h-4 bg-[var(--background)] border-2 border-[var(--primary)] rounded-full -left-[9px] md:left-1/2 md:-translate-x-[8px] z-10" />
-              
-              <div className="md:w-[45%] pl-8 md:pl-0">
-                <div className={`glass p-8 rounded-2xl glass-hover ${index % 2 === 0 ? 'md:mr-auto' : 'md:ml-auto'}`}>
-                  <div className="text-[var(--primary)] font-mono text-xl mb-4">{step.num}</div>
-                  <h3 className="text-2xl font-bold mb-3">{step.title}</h3>
-                  <p className="text-[var(--foreground-muted)] leading-relaxed">
-                    {step.desc}
-                  </p>
-                </div>
+        {/* Timeline */}
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
+            gap: 0,
+            position: "relative",
+          }}
+        >
+          {/* Connector line (desktop) */}
+          <div
+            aria-hidden
+            style={{
+              position: "absolute",
+              top: 28,
+              left: "12.5%",
+              right: "12.5%",
+              height: 1,
+              background: "var(--border)",
+              zIndex: 0,
+            }}
+          />
+
+          {steps.map(({ num, title, desc, duration }, i) => (
+            <div
+              key={num}
+              style={{
+                position: "relative",
+                zIndex: 1,
+                padding: "0 24px 0 0",
+              }}
+            >
+              {/* Step dot */}
+              <div
+                style={{
+                  width: 56,
+                  height: 56,
+                  borderRadius: "50%",
+                  background: i === 0 ? "var(--accent)" : "#fff",
+                  border: `2px solid ${i === 0 ? "var(--accent)" : "var(--border)"}`,
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  marginBottom: 24,
+                  transition: "background 0.2s, border-color 0.2s",
+                }}
+              >
+                <span
+                  style={{
+                    fontFamily: "var(--font-mono)",
+                    fontWeight: 700,
+                    fontSize: 15,
+                    color: i === 0 ? "#fff" : "var(--fg-muted)",
+                  }}
+                >
+                  {num}
+                </span>
               </div>
-              
-              <div className="hidden md:block md:w-[45%]" />
+
+              <div
+                style={{
+                  fontFamily: "var(--font-mono)",
+                  fontSize: 10,
+                  letterSpacing: "0.08em",
+                  color: "var(--accent)",
+                  textTransform: "uppercase",
+                  marginBottom: 8,
+                }}
+              >
+                {duration}
+              </div>
+
+              <h3
+                style={{
+                  fontFamily: "var(--font-display)",
+                  fontWeight: 700,
+                  fontSize: 18,
+                  color: "var(--fg)",
+                  marginBottom: 12,
+                  lineHeight: 1.2,
+                }}
+              >
+                {title}
+              </h3>
+              <p
+                style={{
+                  fontFamily: "var(--font-body)",
+                  fontSize: 14,
+                  color: "var(--fg-muted)",
+                  lineHeight: 1.65,
+                }}
+              >
+                {desc}
+              </p>
             </div>
           ))}
         </div>

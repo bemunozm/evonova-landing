@@ -1,29 +1,65 @@
 export function TrustBar() {
-  const logos = [
-    { name: "Pira.cl", abbr: "Pira" },
-    { name: "OTEC Tarapacá", abbr: "OTEC" },
-    { name: "Sodimac Proveedores", abbr: "SOD" },
-    { name: "Zona Franca Iquique", abbr: "ZOFRI" },
-    { name: "Clínica Red", abbr: "CLINICA" }
+  const clients = [
+    "Pira.cl",
+    "OTEC Tarapacá",
+    "Comercial Atacama",
+    "Constructora Norte",
+    "Retail IA",
+    "Distribuidora Sur",
+    "Pira.cl",
+    "OTEC Tarapacá",
+    "Comercial Atacama",
+    "Constructora Norte",
+    "Retail IA",
+    "Distribuidora Sur",
   ];
 
   return (
-    <section className="py-12 border-t border-[var(--border)] bg-gradient-to-b from-[var(--background)] to-[var(--surface)]/20">
-      <div className="container px-6 mx-auto">
-        <p className="text-center text-sm font-medium text-[var(--foreground-muted)] mb-8 uppercase tracking-widest">
-          Empresas que ya escalan sin límites
+    <section
+      style={{
+        borderTop: "1px solid var(--border)",
+        borderBottom: "1px solid var(--border)",
+        background: "var(--bg-soft)",
+        padding: "28px 0",
+        overflow: "hidden",
+      }}
+    >
+      <div className="container" style={{ marginBottom: 16 }}>
+        <p
+          style={{
+            fontSize: 11,
+            letterSpacing: "0.1em",
+            textTransform: "uppercase",
+            color: "var(--fg-muted)",
+            fontFamily: "var(--font-mono)",
+            textAlign: "center",
+          }}
+        >
+          Empresas que ya operan con EVONOVA
         </p>
-        
-        <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-60 hover:opacity-100 transition-opacity duration-500">
-          {logos.map((logo, index) => (
-            <div 
-              key={index}
-              className="group flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300"
+      </div>
+
+      <div style={{ overflow: "hidden", maskImage: "linear-gradient(to right, transparent, black 10%, black 90%, transparent)" }}>
+        <div className="scroll-infinite">
+          {clients.map((name, i) => (
+            <span
+              key={i}
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                padding: "0 40px",
+                fontFamily: "var(--font-display)",
+                fontWeight: 700,
+                fontSize: 15,
+                color: "var(--fg)",
+                opacity: 0.45,
+                whiteSpace: "nowrap",
+                letterSpacing: "-0.01em",
+              }}
             >
-              <span className="text-xl md:text-2xl font-bold text-neutral-500 group-hover:text-white transition-colors duration-300">
-                {logo.name}
-              </span>
-            </div>
+              {name}
+              <span style={{ marginLeft: 40, color: "var(--accent)", opacity: 1, fontSize: 8 }}>●</span>
+            </span>
           ))}
         </div>
       </div>

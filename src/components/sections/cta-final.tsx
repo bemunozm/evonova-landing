@@ -1,35 +1,143 @@
-import { Button } from "@/components/ui/button";
+import Link from "next/link";
+import { ArrowRight, Calendar } from "lucide-react";
 
 export function CtaFinal() {
   return (
-    <section id="contacto" className="py-24 relative overflow-hidden">
-      <div className="absolute inset-0 bg-[var(--primary)]/5"></div>
-      <div className="container px-6 mx-auto max-w-4xl relative z-10">
-        <div className="glass rounded-3xl p-12 md:p-16 text-center border-[var(--primary)]/20 shadow-[0_0_50px_rgba(0,255,163,0.05)]">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">¿Listo para escalar sin fricción?</h2>
-          <p className="text-xl text-[var(--foreground-muted)] mb-10 max-w-2xl mx-auto">
-            Agenda 15 minutos con nosotros. Evaluaremos tu operación gratis y te diremos exactamente cuánto tiempo y dinero puedes ahorrar automatizando.
-          </p>
-          
-          <form className="max-w-md mx-auto flex flex-col gap-4">
-            <input 
-              type="text" 
-              placeholder="Tu nombre" 
-              className="w-full bg-[var(--surface)] border border-[var(--border)] rounded-lg px-4 py-3 text-white focus:outline-none focus:border-[var(--primary)] transition-colors"
-            />
-            <input 
-              type="email" 
-              placeholder="Email corporativo" 
-              className="w-full bg-[var(--surface)] border border-[var(--border)] rounded-lg px-4 py-3 text-white focus:outline-none focus:border-[var(--primary)] transition-colors"
-            />
-            <Button size="lg" className="w-full text-base font-bold mt-2">
-              Solicitar Diagnóstico
-            </Button>
-          </form>
-          
-          <p className="text-sm text-[var(--foreground-muted)] mt-6">
-            Sin compromisos. Solo datos y ROI.
-          </p>
+    <section
+      id="contacto"
+      style={{
+        background: "#0a0a0a",
+        padding: "120px 0",
+        position: "relative",
+        overflow: "hidden",
+      }}
+    >
+      {/* Accent glow */}
+      <div
+        aria-hidden
+        style={{
+          position: "absolute",
+          bottom: -100,
+          left: "50%",
+          transform: "translateX(-50%)",
+          width: 600,
+          height: 300,
+          background: "radial-gradient(ellipse, rgba(0,194,122,0.12) 0%, transparent 70%)",
+          pointerEvents: "none",
+        }}
+      />
+
+      <div className="container" style={{ position: "relative", zIndex: 1, textAlign: "center" }}>
+        <span
+          style={{
+            fontFamily: "var(--font-mono)",
+            fontSize: 11,
+            letterSpacing: "0.12em",
+            textTransform: "uppercase",
+            color: "var(--accent)",
+            display: "block",
+            marginBottom: 24,
+          }}
+        >
+          ¿Empezamos?
+        </span>
+
+        <h2
+          style={{
+            fontSize: "clamp(36px, 5vw, 68px)",
+            fontWeight: 700,
+            color: "#ffffff",
+            lineHeight: 1.1,
+            marginBottom: 24,
+            maxWidth: 700,
+            margin: "0 auto 24px",
+          }}
+        >
+          ¿Listo para automatizar tu empresa?
+        </h2>
+
+        <p
+          style={{
+            fontFamily: "var(--font-body)",
+            fontSize: 18,
+            color: "rgba(255,255,255,0.5)",
+            marginBottom: 48,
+            maxWidth: 480,
+            margin: "0 auto 48px",
+            lineHeight: 1.6,
+          }}
+        >
+          El diagnóstico es gratis y sin compromiso. En 30 minutos te decimos exactamente qué se puede automatizar en tu empresa y cuánto te costaría.
+        </p>
+
+        <div
+          style={{
+            display: "flex",
+            flexWrap: "wrap",
+            gap: 14,
+            justifyContent: "center",
+          }}
+        >
+          <Link
+            href="https://calendly.com/evonova"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-primary"
+          >
+            <Calendar size={16} />
+            Agendar Diagnóstico Gratis
+            <ArrowRight size={16} />
+          </Link>
+          <Link
+            href="https://wa.me/56912345678?text=Hola%2C%20me%20interesa%20una%20demo%20de%20EVONOVA"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-ghost-white"
+          >
+            Ver Demo por WhatsApp
+          </Link>
+        </div>
+
+        <div
+          style={{
+            marginTop: 64,
+            paddingTop: 48,
+            borderTop: "1px solid rgba(255,255,255,0.08)",
+            display: "flex",
+            flexWrap: "wrap",
+            justifyContent: "center",
+            gap: 48,
+          }}
+        >
+          {[
+            { value: "+30", label: "empresas automatizadas" },
+            { value: "30 días", label: "al primer resultado" },
+            { value: "100%", label: "satisfacción garantizada" },
+          ].map(({ value, label }) => (
+            <div key={label} style={{ textAlign: "center" }}>
+              <div
+                style={{
+                  fontFamily: "var(--font-mono)",
+                  fontSize: 28,
+                  fontWeight: 700,
+                  color: "#fff",
+                  lineHeight: 1,
+                  marginBottom: 6,
+                }}
+              >
+                {value}
+              </div>
+              <div
+                style={{
+                  fontFamily: "var(--font-body)",
+                  fontSize: 13,
+                  color: "rgba(255,255,255,0.4)",
+                }}
+              >
+                {label}
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>
