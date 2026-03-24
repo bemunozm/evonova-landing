@@ -7,6 +7,7 @@ import { Cases } from "@/components/sections/cases";
 import { Process } from "@/components/sections/process";
 import { Pricing } from "@/components/sections/pricing";
 import { CtaFinal } from "@/components/sections/cta-final";
+import { ContactSection } from "@/components/sections/contact";
 import { Footer } from "@/components/sections/footer";
 import { WhatsappButton } from "@/components/ui/whatsapp-button";
 
@@ -22,6 +23,7 @@ export default function Home() {
       <Process />
       <Pricing />
       <CtaFinal />
+      <ContactSection />
       <Footer />
       <WhatsappButton />
     </main>
