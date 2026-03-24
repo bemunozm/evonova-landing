@@ -15,11 +15,11 @@ const leadSchema = z.object({
   phone: z.string().trim().min(7).max(25).optional().or(z.literal("")),
   companySize: z
     .enum(["1-10", "11-50", "51-200", "201-500", "501-1000", "1000+"], {
-      invalid_type_error: "Selecciona el tamaño de tu empresa", required_error: "Selecciona el tamaño de tu empresa",
+      message: "Selecciona el tamaño de tu empresa"
     }),
   message: z.string().trim().max(2000).optional(),
   consent: z.literal(true, {
-    errorMap: () => ({ message: "Debes aceptar las políticas de privacidad" }),
+    message: "Debes aceptar las políticas de privacidad",
   }),
 });
 
